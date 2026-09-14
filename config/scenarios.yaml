@@ -1,0 +1,55 @@
+# scenarios.yaml
+# ---------------------------------------------------------------------
+# EDIT THIS FILE to change the carbon-price scenario paths without
+# touching Python code. Add a new year to any path, add a whole new
+# scenario block, or change the price milestones — the app picks it up
+# automatically on the next run.
+#
+# carbon_price_path: $ per ton of CO2-equivalent (real / inflation-
+#   adjusted), at each milestone year. Years in between are linearly
+#   interpolated by src/scenarios.py.
+#
+# Shaped after (but simplified from) the NGFS (Network for Greening the
+# Financial System) scenario framework. For the official, detailed
+# dataset, see the NGFS Scenario Explorer: https://data.ene.iiasa.ac.at/ngfs/
+# ---------------------------------------------------------------------
+
+scenarios:
+  orderly:
+    label: "Orderly Transition"
+    description: >
+      Climate policy tightens early and predictably. Markets have time
+      to adjust; carbon prices rise smoothly.
+    carbon_price_path:
+      2025: 25
+      2030: 45
+      2035: 70
+      2040: 100
+      2045: 130
+      2050: 160
+
+  disorderly:
+    label: "Disorderly Transition"
+    description: >
+      Policy action is delayed, then arrives suddenly and forcefully to
+      catch up on climate targets. Sharp, late carbon price shock.
+    carbon_price_path:
+      2025: 10
+      2030: 15
+      2035: 90
+      2040: 160
+      2045: 200
+      2050: 230
+
+  hothouse:
+    label: "Hothouse World (Current Policies)"
+    description: >
+      Little new climate policy is introduced. Carbon prices stay low,
+      but physical climate damages (not priced here) accumulate.
+    carbon_price_path:
+      2025: 8
+      2030: 12
+      2035: 18
+      2040: 25
+      2045: 32
+      2050: 40
